@@ -9,8 +9,17 @@
 //      // |-> also sort the list of articles by relevance, or other ways based on what newscatcher has
 
 
+function onLoad() {
+    getLocation();
+    catchTheNews();
+    // displayArticles();
+    // // Impliment Local Storage display in displayArticles();
+    // 
+    return;
+}
 
-function test() {
+
+function catchTheNews() {
     var query = 'news'
 
     const url = "https://api.newscatcherapi.com/v2/search?" + new URLSearchParams({
