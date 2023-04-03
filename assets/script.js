@@ -49,8 +49,8 @@ function getLocation() {
 }
 
 function onLoad() {
-    var location = getLocation();
-    catchTheNews(location);
+    var initialLocation = getLocation();
+    catchTheNews(initialLocation);
     displayArticles();
     return;
 }
