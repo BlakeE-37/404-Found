@@ -10,16 +10,15 @@
 
 
 function onLoad() {
-    getLocation();
-    catchTheNews();
+    var location = getLocation();
+    catchTheNews(location);
     // displayArticles();
     // // Impliment Local Storage display in displayArticles();
-    // 
     return;
 }
 
 
-function catchTheNews() {
+function catchTheNews(geoLocation) {
     var query = 'news'
 
     const url = "https://api.newscatcherapi.com/v2/search?" + new URLSearchParams({
