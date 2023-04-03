@@ -43,6 +43,7 @@ function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(console.log, console.log);
     } else {
+        //TODO : Needs to be deleted or changed to a modal
         alert("Location usage is not supported by this browser.");
     }
 }
