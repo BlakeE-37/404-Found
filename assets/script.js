@@ -9,7 +9,7 @@
 // ---CSS TEAM--- // dropedown? -> Sort the list of articles by relevance, or other ways based on what newscatcher has
 
 function displayArticles() {
-    // JQuery function that simply displays the articles, no filtering here
+    // function using jQuery that simply displays the articles, no filtering here
     return;
 }
 
@@ -50,8 +50,7 @@ function getLocation() {
 function onLoad() {
     var location = getLocation();
     catchTheNews(location);
-    // displayArticles();
-    // // Impliment Local Storage display in displayArticles();
+    displayArticles();
     return;
 }
 
