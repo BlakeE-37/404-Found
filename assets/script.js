@@ -5,21 +5,18 @@
 // we need to set up a function for Jquery to add the news articles as a list to the page
 
 // We need to have an event listeners for a button that will reload the news articles based on seach criteria typed by the user
-//      // Criteria includes --- Title/keywords, Date, location, news source
-//      // |-> also sort the list of articles by relevance, or other ways based on what newscatcher has
+// ---CSS TEAM--- // Criteria includes --- Title/keywords, Date, location, news source
+// ---CSS TEAM--- // dropedown? -> Sort the list of articles by relevance, or other ways based on what newscatcher has
 
-
-function onLoad() {
-    var location = getLocation();
-    catchTheNews(location);
-    // displayArticles();
-    // // Impliment Local Storage display in displayArticles();
+function displayArticles() {
+    // JQuery function that simply displays the articles, no filtering here
     return;
 }
 
-
 function catchTheNews(geoLocation) {
-    var query = 'news'
+    // variables for query parameters
+    var query = 'news';
+    var location = geoLocation;
 
     const url = "https://api.newscatcherapi.com/v2/search?" + new URLSearchParams({
         q: query,
@@ -28,6 +25,7 @@ function catchTheNews(geoLocation) {
     fetch(url, {
         method: "GET",
         headers: {
+            // Blake's API KEY --- Will get replaced with gibby's
             "x-api-key": "6XDeYVf8IA4XMhv7FFkL7LXdZvm61crB7KpC1zGTB8w"
         }
     })
@@ -40,8 +38,8 @@ function catchTheNews(geoLocation) {
         })
 };
 
-
 function getLocation() {
+    // Local storage for location and location permission??? Needs researched.
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(console.log, console.log);
     } else {
@@ -49,5 +47,13 @@ function getLocation() {
     }
 }
 
-getLocation();
-// test();
+function onLoad() {
+    var location = getLocation();
+    catchTheNews(location);
+    // displayArticles();
+    // // Impliment Local Storage display in displayArticles();
+    return;
+}
+
+// function only called once on initial webpage load 
+onLoad();
