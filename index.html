@@ -5,30 +5,166 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Headline-HQ: Your National News Generator</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Headline-HQ: Your Trusted News Finder</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <header class="container">
+        <hgroup>
+          <h1>Headline-HQ</h1>
+          <h2>Your trusted news finder.</h2>
+        </hgroup>
+       <nav class="container-fluid">
+        <ul>
+          <li><a href="./" class="contrast" onclick="event.preventDefault()"><strong>Find your news here</strong></a></li>
+        </ul>
+        <ul>
+          <li>
+            <details role="list" dir="rtl">
+              <summary aria-haspopup="listbox" role="link" class="secondary">Theme</summary>
+              <ul role="listbox">
+                <li><a href="#" data-theme-switcher="auto">Auto</a></li>
+                <li><a href="#" data-theme-switcher="light">Light</a></li>
+                <li><a href="#" data-theme-switcher="dark">Dark</a></li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="container">
+
+        <article id="article">
+            <h2>Thank you for choosing Headline-HQ</h2>
+            <p>Nullam dui arcu, malesuada et sodales eu, efficitur vitae dolor. Sed ultricies dolor non ante vulputate hendrerit. Vivamus sit amet suscipit sapien. Nulla iaculis eros a elit pharetra egestas. Nunc placerat facilisis cursus. Sed vestibulum metus eget dolor pharetra rutrum.</p>
+            <footer><small>Duis nec elit placerat, suscipit nibh quis, finibus neque.</small></footer>
+          </article>
+    
+      
+          <section id="form">
+    
+           
+              <label for="search">Search</label>
+              <input type="search" id="search" name="search" placeholder="Search">
+    
+    
+               
+                <label for="date">Date
+                  <input type="date" id="date" name="date">
+                </label>
+              </div>
+    
+              <div class="grid">
+    
+               
+                <fieldset>
+                  <legend><strong>Do you want all news sources?</strong></legend>
+                  <label for="checkbox-1">
+                    <input type="checkbox" id="checkbox-1" name="checkbox-1" checked>
+                    Yes
+                  </label>
+                </fieldset>
+    
+              </div>
+    
+              <!-- Buttons -->
+              <input type="submit" value="Submit" onclick="event.preventDefault()">
+    
+            </form>
+          </section>
+         
+    
+   
+          <section id="loading">
+            <h2>Loading</h2>
+            <article aria-busy="true"></article>
+            <button aria-busy="true">Please wait…</button>
+          </section>
+    
+          
+          <section id="preview">
+            <h2>Do you like what your finding?</h2>
+            <p>Subscribe to stay up to date with all things news and be your best informed self!</p>
+            <form>
+              <div class="grid">
+                <input type="text" name="firstname" placeholder="First name" aria-label="First name" required>
+                <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+                <button type="submit">Subscribe</button>
+              </div>
+              <fieldset>
+                <label for="terms">
+                  <input type="checkbox" role="switch" id="terms" name="terms">
+                  I agree to the <a href="#" onclick="event.preventDefault()">Term of Service</a>
+                </label>
+              </fieldset>
+            </form>
+          </section>
+
+    </main>
+    
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <body>
+    <header >
+        <h1 class="Headline">HeadLine-HQ</h1>
+    </header>
     <section class="side-bar">
         <button id="newStory">New News Story</button>
         <div class="history"></div>
-        <nav></nav>
-        <p>Made by Faith, Blake, Geofferey, and Graham</p>
+        <nav><a class="navlink" href="home">Home</a>
+            <a href="#gallery">Gallery</a>
+            <a href="about">About</a>
+            <a href="#help">Help</a>
+            <a href="#contact">Contact</a>
+
         </nav>
+         <button id="newStory">New News Story</button>
     </section>
+    <main class="container">
     <section class="main">
-        <h1>HeadLine-HQ</h1>
         <p id="output"></p>
         <div class="bottom-section">
+            <input type="search" id="search" name="search" placeholder="Search">
             <div class="input-container">
-                <input />
+                <input /> 
                 <div id="submit">➢</div>
             </div>
         </div>
         <p class="info"></p>
     </section>
+</main>
     <script src="script.js"></script>
 </body>
 
-</html>
+</html> -->
