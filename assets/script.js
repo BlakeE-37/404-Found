@@ -6,12 +6,7 @@
 
 // We need to have an event listeners for a button that will reload the news articles based on seach criteria typed by the user
 // ---CSS TEAM--- // Criteria includes --- Title/keywords, Date, location, news source
-// ---CSS TEAM--- // dropedown? -> Sort the list of articles by relevance, or other ways based on what newscatcher has
-
-function displayArticles() {
-    // function using jQuery that simply displays the articles, no filtering here
-    return;
-}
+//
 
 function catchTheNews(location = "", keyword = 'school') {
     // variables for query parameters
@@ -32,9 +27,41 @@ function catchTheNews(location = "", keyword = 'school') {
 
         })
         .then(function (data) {
-            console.log(data);
+            var newsArticles = document.getElementById('news-articles');
+            newsArticles.innerHTML = '';
+    
+            for(var i=0; i<data.articles.length; i++) {
+                var article = data.articles[i];
+    
+                var articleDiv = document.createElement('div');
+    
+                var title = document.createElement('h2');
+                title.innerHTML = article.title;
+    
+                var author = document.createElement('p');
+                author.innerHTML = 'By ' + article.author;
+    
+                var description = document.createElement('p');
+                description.innerHTML = article.description;
+    
+                var url = document.createElement('a');
+                url.href = article.url;
+                url.innerHTML = 'Read more';
+    
+                articleDiv.appendChild(title);
+                articleDiv.appendChild(author);
+                articleDiv.appendChild(description);
+                articleDiv.appendChild(url);
+    
+                newsArticles.appendChild(articleDiv);
+            }
         })
-};
+        .catch(function(error) {
+            console.log(error);
+        });
+    }
+            
+        
 // function to turn our latitude and longitude coordinates into a usuable location
 function googleApiCall(position) {
     const { latitude, longitude } = position.coords;
@@ -48,6 +75,7 @@ function googleApiCall(position) {
             console.log(data);
             var dataArray = data.results[0].address_components[4].long_name;
             console.log(dataArray);
+            catchTheNews(dataArray);
         })
 }
 
