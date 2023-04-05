@@ -13,20 +13,18 @@ function displayArticles() {
     return;
 }
 
-function catchTheNews(geoLocation) {
+function catchTheNews(location = "", keyword = 'school') {
     // variables for query parameters
-    var query = 'news';
-    var location = geoLocation;
-
     const url = "https://api.newscatcherapi.com/v2/search?" + new URLSearchParams({
-        q: query,
-        page_size: 20
+        q: location + " AND " + keyword,
+        lang: 'en',
+        page_size: 20,
     });
     fetch(url, {
         method: "GET",
         headers: {
             // Blake's API KEY --- Will get replaced with gibby's
-            "x-api-key": "6XDeYVf8IA4XMhv7FFkL7LXdZvm61crB7KpC1zGTB8w"
+            "x-api-key": "frpBqZeRsHEjJuDlD91N1HC-7DbJex5ZtyETKeIYfWA"
         }
     })
         .then(function (response) {
@@ -37,11 +35,27 @@ function catchTheNews(geoLocation) {
             console.log(data);
         })
 };
+// function to turn our latitude and longitude coordinates into a usuable location
+function googleApiCall(position) {
+    const { latitude, longitude } = position.coords;
+    const googleApiKey = "AIzaSyDxCSpACr0DrCHKIo_rpjo1KiUntK9Vi5E"
+    const googleURL = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + latitude + "," + longitude + "&key=" + googleApiKey;
+    fetch(googleURL)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            var dataArray = data.results[0].address_components[4].long_name;
+            console.log(dataArray);
+        })
+}
 
+// uses geolocation to ask for location permission from the user and returns the latitude and longitude
 function getLocation() {
     // Local storage for location and location permission??? Needs researched.
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(console.log, console.log);
+        navigator.geolocation.getCurrentPosition(googleApiCall, console.log);
     } else {
         //TODO : Needs to be deleted or changed to a modal
         alert("Location usage is not supported by this browser.");
@@ -49,9 +63,9 @@ function getLocation() {
 }
 
 function onLoad() {
-    var initialLocation = getLocation();
-    catchTheNews(initialLocation);
-    displayArticles();
+    getLocation();
+    // catchTheNews('utah');
+    // displayArticles();
     return;
 }
 
