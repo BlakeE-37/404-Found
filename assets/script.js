@@ -35,7 +35,7 @@ function catchTheNews(location = "", keyword = 'school') {
             console.log(data);
         })
 };
-// function to turn our longitude and latitude coordinates into a usuable location
+// function to turn our latitude and longitude coordinates into a usuable location
 function googleApiCall(position) {
     const { latitude, longitude } = position.coords;
     const googleApiKey = "AIzaSyDxCSpACr0DrCHKIo_rpjo1KiUntK9Vi5E"
@@ -46,11 +46,12 @@ function googleApiCall(position) {
         })
         .then(function (data) {
             console.log(data);
-            var dataArray = data.results[5].address_components[0].long_name;
+            var dataArray = data.results[0].address_components[4].long_name;
             console.log(dataArray);
         })
 }
 
+// uses geolocation to ask for location permission from the user and returns the latitude and longitude
 function getLocation() {
     // Local storage for location and location permission??? Needs researched.
     if (navigator.geolocation) {
@@ -62,7 +63,7 @@ function getLocation() {
 }
 
 function onLoad() {
-    var initialLocation = getLocation();
+    getLocation();
     // catchTheNews('utah');
     // displayArticles();
     return;
