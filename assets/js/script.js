@@ -43,6 +43,7 @@ function catchTheNews(location = "", keyword = 'school') {
                     function (event) {
                         event.preventDefault();
                         console.log(this.href);
+                        localStorage.setItem("pastUrl", this.href)
                         window.open(this.href, "_blank");
                     })
 
@@ -88,10 +89,16 @@ function getLocation() {
     }
 }
 
+function displayLocalStorage() {
+    if (localStorage.getItem("pastUrl")) {
+        var test = document.getElementById('headLines')
+        test.childElementCount[0].innerHTML = localStorage.getItem("pastUrl")
+    }
+}
+
 function onLoad() {
     getLocation();
-    // catchTheNews('utah');
-    // displayArticles();
+    displayLocalStorage();
     return;
 }
 
