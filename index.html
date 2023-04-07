@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@1.*/css/pico.min.css">
   <!-- Custom CSS -->
   <link rel="stylesheet" href="./assets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
         </hgroup>
     </header>
 
-  <main class="container">
+  <main class="grid">
 
         <section id="news-articles">
         
@@ -111,19 +112,15 @@
           </section> -->
 
 
-
-    <section id="loading">
-      <h2>Loading</h2>
-      <article aria-busy="true"></article>
-      <button aria-busy="true">Please wait…</button>
-    </section>
+  </main>
 
 
+  <footer class="container">
     <section id="preview">
       <h2>Do you like what your finding?</h2>
       <p>Subscribe to stay up to date with all things news and be your best informed self!</p>
       <form>
-        <div class="grid">
+        <div class="subscribe">
           <input type="text" name="firstname" placeholder="First name" aria-label="First name" required>
           <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
           <button type="submit">Subscribe</button>
@@ -136,7 +133,6 @@
         </fieldset>
       </form>
     </section>
-
-  </main>
+  </footer>
   <script src="./assets/script.js"></script>
 </body>

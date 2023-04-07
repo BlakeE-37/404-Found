@@ -30,10 +30,11 @@ body {
 }
 
 #article{
-    width: 50%;
+    width: 90%;
     background-color: var(--text);
     padding: 4px;
-    margin: 0 25%;
+    margin: 0 5%;
+   
 }
 
 #article > h2{
@@ -60,13 +61,44 @@ body {
     padding-bottom: 0px;
 }
 
+#news-articles {
+    width: 50%;
+    border-right: 4px solid var(--text);
+    float: left;
+    
+}
 
+#news-articles div h2 {
+    color: var(--background);
+    text-align: left;
+    margin: initial;
+}
 
 #form {
-   width: 100%;
+   width: 50%;
     margin-left: 30%;
     text-align: center;
     padding-top: 0px;
+    
+    float: right;
+    position: absolute;
+}
+
+#preview {
+    width: 100%;
+    text-align: center;
+    padding-top: 0px;
+   
+}
+
+.news-title {
+    color: #F1F0EA;
+    text-align: left;
+    margin-bottom: 25px;
+    background-color: var(--text);
+    margin-right: 20px;
+    padding-left: 25px;
+border-radius: 10px 10px 10px 10px;
 }
 
 
@@ -90,6 +122,16 @@ body {
 }
 
 .grid {
-    width: 40%;
+    width: 60%;
     margin: 0 auto;
+}
+
+.list {
+    width: 60%;
+    margin: 0 auto;
+}
+
+footer {
+    width: 100%;
+    position:relative;left:80px;top:500px
 }
