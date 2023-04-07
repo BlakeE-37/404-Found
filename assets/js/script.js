@@ -9,7 +9,7 @@ function catchTheNews(location = "", keyword = 'school') {
         method: "GET",
         headers: {
             // Blake's API KEY --- Will get replaced with gibby's
-            "x-api-key": "frpBqZeRsHEjJuDlD91N1HC-7DbJex5ZtyETKeIYfWA"
+            "x-api-key": "gSaniyoWhpqcRq2-uGFNBy72JJbzNfaqb4554RGP6e0"
         }
     })
         .then(function (response) {
@@ -43,6 +43,7 @@ function catchTheNews(location = "", keyword = 'school') {
                     function (event) {
                         event.preventDefault();
                         console.log(this.href);
+                        window.open(this.href, "_blank");
                     })
 
                 articleDiv.appendChild(title);
