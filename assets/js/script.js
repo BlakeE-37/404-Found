@@ -17,6 +17,7 @@ function catchTheNews(location = "", keyword = 'school') {
 
         })
         .then(function (data) {
+            console.log(data)
             var newsArticles = document.getElementById('news-articles');
             newsArticles.innerHTML = '';
 
@@ -32,20 +33,20 @@ function catchTheNews(location = "", keyword = 'school') {
                 author.innerHTML = 'By ' + article.author;
 
                 var description = document.createElement('p');
-                description.innerHTML = article.description;
+                description.innerHTML = article.excerpt;
 
                 var url = document.createElement('a');
                 url.href = article.link;
                 url.innerHTML = 'Read more';
                 url.setAttribute("target", "_blank")
 
-                url.addEventListener("click",
-                    function (event) {
-                        event.preventDefault();
-                        console.log(this.href);
-                        localStorage.setItem("pastUrl", this.href)
-                        window.open(this.href, "_blank");
-                    })
+                // url.addEventListener("click",
+                //     function (event) {
+                //         event.preventDefault();
+                //         console.log(this.href);
+                //         localStorage.setItem("pastUrl", this.href)
+                //         window.open(this.href, "_blank");
+                //     })
 
                 articleDiv.appendChild(title);
                 articleDiv.appendChild(author);
@@ -90,9 +91,9 @@ function getLocation() {
 }
 
 function displayLocalStorage() {
-    if (localStorage.getItem("pastUrl")) {
+    if (localStorage.getItem("testing")) {
         var test = document.getElementById('headLines')
-        test.childElementCount[0].innerHTML = localStorage.getItem("pastUrl")
+        test.setAttribute = localStorage.getItem("pastUrl")
     }
 }
 
