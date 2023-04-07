@@ -1,13 +1,3 @@
-// On Website-Load we need to check for location and load local news articles
-//      // convert Geo-Location to an actual usable location for newscatcher filtering
-//      // save Geo-Location permissions to local storage
-
-// we need to set up a function for Jquery to add the news articles as a list to the page
-
-// We need to have an event listeners for a button that will reload the news articles based on seach criteria typed by the user
-// ---CSS TEAM--- // Criteria includes --- Title/keywords, Date, location, news source
-//
-
 function catchTheNews(location = "", keyword = 'school') {
     // variables for query parameters
     const url = "https://api.newscatcherapi.com/v2/search?" + new URLSearchParams({
