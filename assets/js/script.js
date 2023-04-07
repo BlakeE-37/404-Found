@@ -19,39 +19,46 @@ function catchTheNews(location = "", keyword = 'school') {
         .then(function (data) {
             var newsArticles = document.getElementById('news-articles');
             newsArticles.innerHTML = '';
-    
-            for(var i=0; i<data.articles.length; i++) {
+
+            for (var i = 0; i < data.articles.length; i++) {
                 var article = data.articles[i];
-    
+
                 var articleDiv = document.createElement('div');
-    
+
                 var title = document.createElement('h2');
                 title.innerHTML = article.title;
-    
+
                 var author = document.createElement('p');
                 author.innerHTML = 'By ' + article.author;
-    
+
                 var description = document.createElement('p');
                 description.innerHTML = article.description;
-    
+
                 var url = document.createElement('a');
-                url.href = article.url;
+                url.href = article.link;
                 url.innerHTML = 'Read more';
-    
+                url.setAttribute("target", "_blank")
+
+                url.addEventListener("click",
+                    function (event) {
+                        event.preventDefault();
+                        console.log(this.href);
+                    })
+
                 articleDiv.appendChild(title);
                 articleDiv.appendChild(author);
                 articleDiv.appendChild(description);
                 articleDiv.appendChild(url);
-    
+
                 newsArticles.appendChild(articleDiv);
             }
         })
-        .catch(function(error) {
+        .catch(function (error) {
             console.log(error);
         });
-    }
-            
-        
+}
+
+
 // function to turn our latitude and longitude coordinates into a usuable location
 function googleApiCall(position) {
     const { latitude, longitude } = position.coords;
