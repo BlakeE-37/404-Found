@@ -105,6 +105,8 @@ header {
     width: 50%;
     border-right: 4px solid var(--dark);
     float: left;
+    /* overflow-y: scroll;
+    height: 1000px; */
 }
 
 #news-articles div h2 {
