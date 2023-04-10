@@ -171,6 +171,7 @@ footer {
 
 .continueReading {
     background-color: var(--dark);
+    margin-top: 50px;
     margin-left: 15px;
     margin-bottom: 100px;
     padding: 10px;

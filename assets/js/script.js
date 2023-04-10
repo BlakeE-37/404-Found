@@ -92,6 +92,7 @@ function getLocation() {
     }
 }
 
+// local storage display function
 function displayLocalStorage() {
     if (localStorage.getItem("pastUrl")) {
         var url = localStorage.getItem("pastUrl");
