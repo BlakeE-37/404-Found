@@ -3,7 +3,9 @@ var globalVarLocation = "US";
 
 function searchNews() {
     var searchBox = document.getElementById("search").value
-    catchTheNews(globalVarLocation, searchBox)
+    if (searchBox) {
+        catchTheNews(globalVarLocation, searchBox)
+    }
 }
 
 
