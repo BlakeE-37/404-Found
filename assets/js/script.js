@@ -1,4 +1,13 @@
-function catchTheNews(location = "", keyword = 'news') {
+var submitSearch = document.getElementById("submit");
+var globalVarLocation = "US";
+
+function searchNews() {
+    var searchBox = document.getElementById("search").value
+    catchTheNews(globalVarLocation, searchBox)
+}
+
+
+function catchTheNews(location = "US", keyword = 'news') {
     // variables for query parameters
     const url = "https://api.newscatcherapi.com/v2/search?" + new URLSearchParams({
         q: location + " AND " + keyword,
@@ -77,6 +86,7 @@ function googleApiCall(position) {
             console.log(data);
             var dataArray = data.results[0].address_components[4].long_name;
             console.log(dataArray);
+            globalVarLocation = dataArray;
             catchTheNews(dataArray);
         })
 }
@@ -85,7 +95,7 @@ function googleApiCall(position) {
 function getLocation() {
     // Local storage for location and location permission??? Needs researched.
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(googleApiCall, console.log);
+        navigator.geolocation.getCurrentPosition(googleApiCall, catchTheNews('us', 'news'));
     } else {
         //TODO : Needs to be deleted or changed to a modal
         alert("Location usage is not supported by this browser.");
@@ -118,5 +128,6 @@ function onLoad() {
     return;
 }
 
+submitSearch.addEventListener("click", searchNews)
 // function only called once on initial webpage load 
 onLoad();
