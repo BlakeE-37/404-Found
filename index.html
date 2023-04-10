@@ -20,78 +20,72 @@
         </hgroup>
     </header>
 
-  <main class="container">
+  <main class="grid">
 
         <section id="news-articles">
         
         </section>
 
-
         <section id="form">
           <article id="article">
             <h2>Thank you for choosing Headline-HQ</h2>
-            <!-- <p>Nullam dui arcu, malesuada et sodales eu, efficitur vitae dolor. Sed ultricies dolor non ante vulputate hendrerit. Vivamus sit amet suscipit sapien. Nulla iaculis eros a elit pharetra egestas. Nunc placerat facilisis cursus. Sed vestibulum metus eget dolor pharetra rutrum.</p> -->
-            <!-- <footer><small>Duis nec elit placerat, suscipit nibh quis, finibus neque.</small></footer> -->
+           
            </article>
     
-           
             <label for="search"></label>
             <input type="search" id="search" name="search" placeholder="Search"  >
   
+            <div class="list">
+        
   
-            <div class="grid">
-              <label for="date">Date
-                <input type="date" id="date" name="date">
-              </label>
-  
-            <!-- <div class="grid"> -->
-
-
-  
-             
 <label for="listItems">List
                 <details role="list" id="list">
                     <summary aria-haspopup="listbox">list</summary>
                     <ul role="listbox">
-                      <li><a>Action</a></li>
-                      <li><a>Another action</a></li>
-                      <li><a>Something else here</a></li>
+                      <li><a>News</a></li>
+                      <li><a>Sports</a></li>
+                      <li><a>Politics</a></li>
+                      <li><a>Business</a></li>
+                      <li><a>Economics</a></li>
+                      <li><a>entertainment</a></li>
+                      <li><a>Beauty</a></li>
+                      <li><a>Travel</a></li>
+                      <li><a>Music</a></li>
+                      <li><a>Food</a></li>
+                      <li><a>Science</a></li>
+                      <li><a>Gaming</a></li>
+                      <li><a>Energy</a></li>
                     </ul>
                   </details> 
                 </label>
             </div>
-           
+            <!-- Buttons -->
             <input type="submit" value="Submit" id="submit" onclick="event.preventDefault()">
   
           </form>
         </section>
-
-
-    <section id="loading">
-      <h2>Loading</h2>
-      <article aria-busy="true"></article>
-      <button aria-busy="true">Please wait…</button>
-    </section>
-
-
-    <section id="preview">
-      <h2>Do you like what your finding?</h2>
-      <p>Subscribe to stay up to date with all things news and be your best informed self!</p>
-      <form>
-        <div class="grid">
-          <input type="text" name="firstname" placeholder="First name" aria-label="First name" required>
-          <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
-          <button type="submit">Subscribe</button>
-        </div>
-        <fieldset>
-          <label for="terms">
-            <input type="checkbox" role="switch" id="terms" name="terms">
-            I agree to the <a href="#" onclick="event.preventDefault()">Term of Service</a>
-          </label>
-        </fieldset>
-      </form>
-    </section>
-
   </main>
+
+
   <script src="./assets/js/script.js"></script>
 </body>
+
+<footer class="container">
+  <section id="preview">
+    <h2>Do you like what your finding?</h2>
+    <p>Subscribe to stay up to date with all things news and be your best informed self!</p>
+    <form>
+      <div class="subscribe">
+        <input type="text" name="firstname" placeholder="First name" aria-label="First name" required>
+        <input type="email" name="email" placeholder="Email address" aria-label="Email address" required>
+        <button type="submit">Subscribe</button>
+      </div>
+      <fieldset>
+        <label for="terms">
+          <input type="checkbox" role="switch" id="terms" name="terms">
+          I agree to the <a href="#" onclick="event.preventDefault()">Term of Service</a>
+        </label>
+      </fieldset>
+    </form>
+  </section>
+</footer>
