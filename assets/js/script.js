@@ -9,7 +9,7 @@ function catchTheNews(location = "", keyword = 'school') {
         method: "GET",
         headers: {
             // Blake's API KEY --- Will get replaced with gibby's
-            "x-api-key": "gSaniyoWhpqcRq2-uGFNBy72JJbzNfaqb4554RGP6e0"
+            "x-api-key": "6XDeYVf8IA4XMhv7FFkL7LXdZvm61crB7KpC1zGTB8w"
         }
     })
         .then(function (response) {

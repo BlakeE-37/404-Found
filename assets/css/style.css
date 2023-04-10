@@ -30,6 +30,20 @@
 
 body {
     background-color: var(--light);
+    padding: 0%;
+}
+
+.grid {
+    padding-top: 0%;
+}
+
+/* Headlines will now stay at the top of the page. */
+header {   
+z-index: 1;
+    position: sticky;   
+background: var(--light);
+    top: 0; 
+    width: 100%;
 }
 
 /* Headline Style Applications --------------------------------------------------------->*/
@@ -37,6 +51,7 @@ body {
 #headLines {
     text-align: center;
     border-bottom: solid 5px var(--dark);
+    position:sticky;
 }
 /* h1 text */
 #headLines > h1 {
@@ -55,37 +70,76 @@ body {
 /* Right Website Section Style App --------------------------------------------------------->*/
 /* Formatting of this section */
 #form {
-    width: 100%;
+    width: 40%;
     margin-left: 30%;
     text-align: center;
     padding-top: 0px;
+    float: right;
+    position: absolute;
  }
 /* Main Title box of the right web section */
 #article{
-    width: 50%;
+    width: 90%;
     background-color: var(--dark);
     padding: 4px;
-    margin: 0 25%;
+    margin: 0 5%;
 }
 /* Text within title box */
 #article > h2{
     margin-bottom: 0;
-    color: var(--background);
+    color: var(--light);
     text-align: left;
     margin-left: 25px;
 }
+
+#news-articles {
+    width: 50%;
+    border-right: 4px solid var(--dark);
+    float: left;
+}
+
+#news-articles div h2 {
+    color: var(--light-accent);
+    text-align: left;
+    margin: initial;
+}
+
+#news-articles div {
+    background-color: var(--dark);
+    margin: 0 30px 15px 0;
+    padding: 10px;
+    border-radius: 10px 10px 10px 10px;
+    
+}
+
+.news-title {
+    color: #f3f0e1;
+    text-align: left;
+    margin-bottom: 25px;
+    background-color: var(--dark);
+    margin-right: 20px;
+    padding-left: 25px;
+border-radius: 10px 10px 10px 10px;
+}
+
+#preview {
+    width: 100%;
+    text-align: center;
+    padding-top: 0px;
+}
+
 /* search bar style */
 #search {
-    width: 50%;
+    width: 90%;
 }
 /* date bar style */
 #date {
     width: 100%;
 }
 /* list drop down style */
-#list {
-    width: 100%;
-    margin-left: 10%;
+.list {
+    width: 90%;
+    margin: 0 auto;
 }
 /* Submit button style */
 #submit {
@@ -95,6 +149,12 @@ body {
 
 
 .grid {
-    width: 40%;
+    width: 60%;
     margin: 0 auto;
+}
+
+footer {
+    width: 100%;
+    position:relative;left:80px;top:500px
+    
 }
