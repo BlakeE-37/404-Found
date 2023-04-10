@@ -1,4 +1,4 @@
-function catchTheNews(location = "", keyword = 'school') {
+function catchTheNews(location = "", keyword = 'news') {
     // variables for query parameters
     const url = "https://api.newscatcherapi.com/v2/search?" + new URLSearchParams({
         q: location + " AND " + keyword,
@@ -93,9 +93,21 @@ function getLocation() {
 }
 
 function displayLocalStorage() {
-    if (localStorage.getItem("testing")) {
-        var test = document.getElementById('headLines')
-        test.setAttribute = localStorage.getItem("pastUrl")
+    if (localStorage.getItem("pastUrl")) {
+        var url = localStorage.getItem("pastUrl");
+        var lsDisplay = document.getElementById('localStorageSection')
+        lsDisplay.setAttribute("class", "continueReading")
+        // create local storage elements
+        var title = document.createElement('h2');
+        title.innerHTML = "Didn't finish Reading?";
+
+        var link = document.createElement('a');
+        link.innerHTML = "click here";
+        link.setAttribute("href", url);
+        link.setAttribute("target", "_blank")
+
+        lsDisplay.appendChild(title)
+        lsDisplay.appendChild(link)
     }
 }
 

@@ -2,7 +2,7 @@
 :root {
     --dark: #2D232E;
     --dark-accent: #474448;
-    --mid:  #534B52;
+    --mid: #534B52;
     --light-accent: #E0DDCF;
     --light: #F1F0EA;
 }
@@ -38,11 +38,11 @@ body {
 }
 
 /* Headlines will now stay at the top of the page. */
-header {   
-z-index: 1;
-    position: sticky;   
-background: var(--light);
-    top: 0; 
+header {
+    z-index: 1;
+    position: sticky;
+    background: var(--light);
+    top: 0;
     width: 100%;
 }
 
@@ -51,20 +51,23 @@ background: var(--light);
 #headLines {
     text-align: center;
     border-bottom: solid 5px var(--dark);
-    position:sticky;
+    position: sticky;
 }
+
 /* h1 text */
-#headLines > h1 {
+#headLines>h1 {
     color: var(--dark);
 }
 
-#headLines > h2 {
+#headLines>h2 {
     color: var(--dark-accent);
 }
+
 .container {
     padding-top: 0px;
     padding-bottom: 0px;
 }
+
 /* (H-S-A End --------------------------------------------------------->)*/
 
 /* Right Website Section Style App --------------------------------------------------------->*/
@@ -76,16 +79,18 @@ background: var(--light);
     padding-top: 0px;
     float: right;
     position: absolute;
- }
+}
+
 /* Main Title box of the right web section */
-#article{
+#article {
     width: 90%;
     background-color: var(--dark);
     padding: 4px;
     margin: 0 5%;
 }
+
 /* Text within title box */
-#article > h2{
+#article>h2 {
     margin-bottom: 0;
     color: var(--light);
     text-align: left;
@@ -109,7 +114,7 @@ background: var(--light);
     margin: 0 30px 15px 0;
     padding: 10px;
     border-radius: 10px 10px 10px 10px;
-    
+
 }
 
 .news-title {
@@ -119,7 +124,7 @@ background: var(--light);
     background-color: var(--dark);
     margin-right: 20px;
     padding-left: 25px;
-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
 }
 
 #preview {
@@ -132,19 +137,23 @@ border-radius: 10px 10px 10px 10px;
 #search {
     width: 90%;
 }
+
 /* date bar style */
 #date {
     width: 100%;
 }
+
 /* list drop down style */
 .list {
     width: 90%;
     margin: 0 auto;
 }
+
 /* Submit button style */
 #submit {
     width: 25%;
 }
+
 /* R-W-S-S-A End --------------------------------------------------------->*/
 
 
@@ -155,6 +164,15 @@ border-radius: 10px 10px 10px 10px;
 
 footer {
     width: 100%;
-    position:relative;left:80px;top:500px
-    
+    position: relative;
+    left: 80px;
+    top: 500px
+}
+
+.continueReading {
+    background-color: var(--dark);
+    margin-left: 15px;
+    margin-bottom: 100px;
+    padding: 10px;
+    border-radius: 10px;
 }
