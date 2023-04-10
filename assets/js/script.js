@@ -1,4 +1,13 @@
-function catchTheNews(location = "", keyword = 'school') {
+var submitSearch = document.getElementById("submit");
+var globalVarLocation = "US";
+
+function searchNews() {
+    var searchBox = document.getElementById("search").value
+    catchTheNews(globalVarLocation, searchBox)
+}
+
+
+function catchTheNews(location = "US", keyword = 'news') {
     // variables for query parameters
     const url = "https://api.newscatcherapi.com/v2/search?" + new URLSearchParams({
         q: location + " AND " + keyword,
@@ -8,7 +17,7 @@ function catchTheNews(location = "", keyword = 'school') {
     fetch(url, {
         method: "GET",
         headers: {
-            // Blake's API KEY --- Will get replaced with gibby's
+            //Blake's API key for the Newcatcher API
             "x-api-key": "6XDeYVf8IA4XMhv7FFkL7LXdZvm61crB7KpC1zGTB8w"
         }
     })
@@ -40,13 +49,15 @@ function catchTheNews(location = "", keyword = 'school') {
                 url.innerHTML = 'Read more';
                 url.setAttribute("target", "_blank")
 
-                // url.addEventListener("click",
-                //     function (event) {
-                //         event.preventDefault();
-                //         console.log(this.href);
-                //         localStorage.setItem("pastUrl", this.href)
-                //         window.open(this.href, "_blank");
-                //     })
+                // When a link is pressed that web URL is saved in local storage and saved for when the page is revisited
+                url.addEventListener("click",
+                    function (event) {
+                        event.preventDefault();
+                        console.log(this.href);
+                        localStorage.setItem("pastUrl", this.href)
+                        // Adding the link to local storage prevented the link from working properly, this line below fixes that
+                        window.open(this.href, "_blank");
+                    })
 
                 articleDiv.appendChild(title);
                 articleDiv.appendChild(author);
@@ -75,6 +86,7 @@ function googleApiCall(position) {
             console.log(data);
             var dataArray = data.results[0].address_components[4].long_name;
             console.log(dataArray);
+            globalVarLocation = dataArray;
             catchTheNews(dataArray);
         })
 }
@@ -83,17 +95,30 @@ function googleApiCall(position) {
 function getLocation() {
     // Local storage for location and location permission??? Needs researched.
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(googleApiCall, console.log);
+        navigator.geolocation.getCurrentPosition(googleApiCall, catchTheNews('us', 'news'));
     } else {
         //TODO : Needs to be deleted or changed to a modal
         alert("Location usage is not supported by this browser.");
     }
 }
 
+// local storage display function
 function displayLocalStorage() {
-    if (localStorage.getItem("testing")) {
-        var test = document.getElementById('headLines')
-        test.setAttribute = localStorage.getItem("pastUrl")
+    if (localStorage.getItem("pastUrl")) {
+        var url = localStorage.getItem("pastUrl");
+        var lsDisplay = document.getElementById('localStorageSection')
+        lsDisplay.setAttribute("class", "continueReading")
+        // create local storage elements
+        var title = document.createElement('h2');
+        title.innerHTML = "Didn't finish Reading?";
+
+        var link = document.createElement('a');
+        link.innerHTML = "click here";
+        link.setAttribute("href", url);
+        link.setAttribute("target", "_blank")
+
+        lsDisplay.appendChild(title)
+        lsDisplay.appendChild(link)
     }
 }
 
@@ -103,5 +128,6 @@ function onLoad() {
     return;
 }
 
+submitSearch.addEventListener("click", searchNews)
 // function only called once on initial webpage load 
 onLoad();
