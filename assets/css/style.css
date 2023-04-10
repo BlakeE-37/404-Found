@@ -7,6 +7,8 @@
     --light: #F1F0EA;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Noticia+Text:wght@700&display=swap');
+
 /* BELOW: POTENTIAL THEME CODE */
 /* [data-theme="light"],
 :root:not([data-theme="dark"]) {
@@ -43,7 +45,7 @@ header {
     position: sticky;
     background: var(--light);
     top: 0;
-    width: 100%;
+    min-width: 100%;
 }
 
 /* Headline Style Applications --------------------------------------------------------->*/
@@ -57,6 +59,8 @@ header {
 /* h1 text */
 #headLines>h1 {
     color: var(--dark);
+    font-family: 'Noticia Text', serif;
+    font-size: 100px;
 }
 
 #headLines>h2 {
