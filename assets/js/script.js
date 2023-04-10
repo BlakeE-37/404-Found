@@ -8,8 +8,8 @@ function catchTheNews(location = "", keyword = 'school') {
     fetch(url, {
         method: "GET",
         headers: {
-            // Blake's API KEY --- Will get replaced with gibby's
-            "x-api-key": "gSaniyoWhpqcRq2-uGFNBy72JJbzNfaqb4554RGP6e0"
+            //Blake's API key for the Newcatcher API
+            "x-api-key": "6XDeYVf8IA4XMhv7FFkL7LXdZvm61crB7KpC1zGTB8w"
         }
     })
         .then(function (response) {
@@ -40,13 +40,15 @@ function catchTheNews(location = "", keyword = 'school') {
                 url.innerHTML = 'Read more';
                 url.setAttribute("target", "_blank")
 
-                // url.addEventListener("click",
-                //     function (event) {
-                //         event.preventDefault();
-                //         console.log(this.href);
-                //         localStorage.setItem("pastUrl", this.href)
-                //         window.open(this.href, "_blank");
-                //     })
+                // When a link is pressed that web URL is saved in local storage and saved for when the page is revisited
+                url.addEventListener("click",
+                    function (event) {
+                        event.preventDefault();
+                        console.log(this.href);
+                        localStorage.setItem("pastUrl", this.href)
+                        // Adding the link to local storage prevented the link from working properly, this line below fixes that
+                        window.open(this.href, "_blank");
+                    })
 
                 articleDiv.appendChild(title);
                 articleDiv.appendChild(author);
